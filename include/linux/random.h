@@ -57,6 +57,8 @@ static inline unsigned long get_random_long(void)
 #endif
 }
 
+unsigned long randomize_page(unsigned long start, unsigned long range);
+
 /*
  * On 64-bit architectures, protect against non-terminated C string overflows
  * by zeroing out the first byte of the canary; this leaves 56 bits of entropy.
@@ -77,8 +79,6 @@ static inline unsigned long get_random_canary(void)
 
 	return val & CANARY_MASK;
 }
-
-unsigned long randomize_page(unsigned long start, unsigned long range);
 
 /*
  * This is designed to be standalone for just prandom
