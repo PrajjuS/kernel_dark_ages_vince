@@ -148,4 +148,8 @@ ENTRY(__spectre_bhb_loop_k32_start)
 	ldp     x0, x1, [sp, #(8 * 0)]
 	add     sp, sp, #(8 * 2)
 ENTRY(__spectre_bhb_loop_k32_end)
->>>>>>> 094a410426b4 (KVM: arm64: Add templates for BHB mitigation sequences)
+
+ENTRY(__spectre_bhb_clearbhb_start)
+	hint	#22	/* aka clearbhb */
+	isb
+ENTRY(__spectre_bhb_clearbhb_end)
