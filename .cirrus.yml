@@ -1,0 +1,16 @@
+env:
+    CIRRUS_WORKING_DIR: "/build"
+    BOT_API: ENCRYPTED[c753be918d35e5341b91fd94fe96f4b05c146a650467afda5f0e80e9cc6d350579d3de4d6bf2c39289725079e449a206]
+    CHAT_ID: ENCRYPTED[3b9f3bd261200003f31aa23ac48e2cd45b8144b446319947f8619f796518cd2899477f96a18a62b5282675afffe84e54]
+
+task:
+  name: "Kernel Builder"
+  timeout_in: 60m
+  container:
+      image: anggit86/dev:latest
+      cpu: 4
+      memory: 12G
+
+  build_script:
+      - wget https://raw.githubusercontent.com/PrajjuS/scripts/master/dark_ages_ci.sh
+      - bash dark_ages_ci.sh
